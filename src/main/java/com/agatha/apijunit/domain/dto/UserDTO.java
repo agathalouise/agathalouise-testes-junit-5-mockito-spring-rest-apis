@@ -11,8 +11,6 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
 public class UserDTO {
 	
 	private Integer id;
