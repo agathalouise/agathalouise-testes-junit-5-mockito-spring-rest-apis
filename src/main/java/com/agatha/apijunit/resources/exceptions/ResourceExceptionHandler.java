@@ -16,14 +16,14 @@ import com.agatha.apijunit.services.exceptions.ObjectNotFoundException;
 public class ResourceExceptionHandler {
 
 	@ExceptionHandler(ObjectNotFoundException.class)
-	public ResponseEntity<StandartError> objectNotFound(ObjectNotFoundException ex, HttpServletRequest request){
-		StandartError error = new StandartError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
+	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException ex, HttpServletRequest request){
+		StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
 	return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
 
 	@ExceptionHandler(DataIntegratyViolationException.class)
-	public ResponseEntity<StandartError> dataIntegratyViolationException(DataIntegratyViolationException ex, HttpServletRequest request){
-		StandartError error = new StandartError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
+	public ResponseEntity<StandardError> dataIntegrityViolationException(DataIntegratyViolationException ex, HttpServletRequest request){
+		StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
 }
